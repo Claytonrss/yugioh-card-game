@@ -1,0 +1,259 @@
+:root {
+  --color1: #ffaacc;
+  --color2: #ddccaa;
+  --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
+  --front: url("./img/card-front.jpg");
+}
+
+.card {
+  width: 500px;
+  height: 700px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+  border-radius: 5%/3.5%;
+  box-shadow: -5px -5px 5px -5px var(--color1), 5px 5px 5px -5px var(--color2), -7px -7px 10px -5px transparent, 7px 7px 10px -5px transparent, 0 0 5px 0px rgba(255, 255, 255, 0), 0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.2s ease;
+  will-change: transform, filter;
+  background-color: #040712;
+  background-image: var(--front);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transform-origin: center;
+}
+
+.card:hover {
+  box-shadow: -20px -20px 30px -25px var(--color1), 20px 20px 30px -25px var(--color2), -7px -7px 10px -5px var(--color1), 7px 7px 10px -5px var(--color2), 0 0 13px 4px rgba(255, 255, 255, 0.3), 0 55px 35px -20px rgba(0, 0, 0, 0.5);
+}
+
+.card:before,
+.card:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 0.4;
+  background-repeat: no-repeat;
+  mix-blend-mode: color-dodge;
+  transition: all 0.33s ease;
+}
+
+.card.holo2:before {
+  --space: 5%;
+  width: 100%;
+  aspect-ratio: 0.714;
+  mix-blend-mode: color-dodge;
+  background-blend-mode: exclusion, hue, hard-light;
+  background-size: 50%, 200% 700%, 300%, 200%;
+  background-position: center, 0% 50%, 50% 50%, 50% 50%;
+  background-repeat: repeat;
+  filter: brightness(0.5) contrast(2) saturate(1.5);
+  background-image: repeating-linear-gradient(0deg, rgb(255, 119, 115) calc(var(--space) * 1), rgb(255, 237, 95) calc(var(--space) * 2), rgb(168, 255, 95) calc(var(--space) * 3), rgb(131, 255, 247) calc(var(--space) * 4), rgb(120, 148, 255) calc(var(--space) * 5), rgb(216, 117, 255) calc(var(--space) * 6), rgb(255, 119, 115) calc(var(--space) * 7));
+  background-size: 200% 700%;
+  background-position: var(--boxBeforePositionX, 0) var(--boxBeforePositionY, 50%);
+}
+
+.card.holo1:before {
+  width: 100%;
+  aspect-ratio: 0.714;
+  border-radius: var(--radius);
+  mix-blend-mode: color-dodge;
+  background-image: url(https://res.cloudinary.com/simey/image/upload/Dev/PokemonCards/illusion.webp), repeating-linear-gradient(0deg, rgb(255, 119, 115) 5%, rgb(255, 237, 95) 10%, rgb(168, 255, 95) 15%, rgb(131, 255, 247) 20%, rgb(120, 148, 255) 25%, rgb(216, 117, 255) 30%, rgb(255, 119, 115) 35%), repeating-linear-gradient(133deg, #0e152e 0%, hsl(180deg, 10%, 60%) 3.8%, hsl(180deg, 29%, 66%) 4.5%, hsl(180deg, 10%, 60%) 5.2%, #0e152e 10%, #0e152e 12%), radial-gradient(farthest-corner circle at 50% 50%, rgba(0, 0, 0, 0.1) 12%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.25) 120%);
+  background-blend-mode: exclusion, hue, hard-light;
+  background-size: 50%, 200% 700%, 300%, 200%;
+  background-position: center, 0% 50%, 50% 50%, 50% 50%;
+  background-repeat: repeat;
+  filter: brightness(0.5) contrast(2) saturate(1.5);
+  -webkit-filter: brightness(0.5) contrast(2) saturate(1.5);
+}
+
+.card.holo2.moved:before {
+  --space: 5%;
+  aspect-ratio: 0.714;
+  border-radius: var(--radius);
+  background-image: repeating-linear-gradient(0deg, rgb(255, 119, 115) calc(var(--space) * 1), rgb(255, 237, 95) calc(var(--space) * 2), rgb(168, 255, 95) calc(var(--space) * 3), rgb(131, 255, 247) calc(var(--space) * 4), rgb(120, 148, 255) calc(var(--space) * 5), rgb(216, 117, 255) calc(var(--space) * 6), rgb(255, 119, 115) calc(var(--space) * 7));
+  background-size: 200% 700%;
+  background-position: var(--boxBeforePositionX, 0) var(--boxBeforePositionY, 50%);
+}
+
+.card.holo1.moved:before {
+  opacity: 0.5;
+  width: 100%;
+  aspect-ratio: 0.714;
+  mix-blend-mode: color-dodge;
+  background-image: url("./img/holos/illusion1.webp"), repeating-linear-gradient(0deg, rgb(255, 119, 115) 5%, rgb(255, 237, 95) 10%, rgb(168, 255, 95) 15%, rgb(131, 255, 247) 20%, rgb(120, 148, 255) 25%, rgb(216, 117, 255) 30%, rgb(255, 119, 115) 35%), repeating-linear-gradient(133deg, #0e152e 0%, hsl(180deg, 10%, 60%) 3.8%, hsl(180deg, 29%, 66%) 4.5%, hsl(180deg, 10%, 60%) 5.2%, #0e152e 10%, #0e152e 12%), radial-gradient(farthest-corner circle at var(--boxBeforePositionX, 50%) var(--boxBeforePositionY, 50%), rgba(0, 0, 0, 0.1) 12%, rgba(0, 0, 0, 0.15) 20%, rgba(0, 0, 0, 0.25) 120%);
+  background-blend-mode: exclusion, hue, hard-light;
+  background-size: 50%, 200% 700%, 300%, 200%;
+  background-position: center, 0% var(--boxBeforePositionX, 50%), var(--boxBeforePositionX, 50%) var(--boxBeforePositionY, 50%), var(--boxBeforePositionX, 50%) var(--boxBeforePositionY, 50%);
+  background-repeat: repeat;
+  filter: brightness(0.5) contrast(2) saturate(1.5);
+  -webkit-filter: brightness(0.5) contrast(2) saturate(1.5);
+}
+
+.card.active:after,
+.card:hover:after {
+  opacity: 1;
+}
+
+.card.active,
+.card:hover {
+  -webkit-animation: none;
+          animation: none;
+  transition: box-shadow 0.1s ease-out;
+}
+
+.card.active:before,
+.card:hover:before,
+.card.active:after,
+.card:hover:after {
+  -webkit-animation: none;
+          animation: none;
+  transition: none;
+}
+
+.demo .card {
+  background-image: var(--back);
+  font-size: 2vh;
+}
+
+.demo .card > span {
+  position: relative;
+  top: 45%;
+}
+
+.demo .card:nth-of-type(1),
+.demo .card:nth-of-type(2),
+.demo .card:nth-of-type(3) {
+  width: 20vh;
+  height: 27.5vh;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 25px 15px -10px rgba(0, 0, 0, 0.5);
+  -webkit-animation: none;
+          animation: none;
+}
+
+.demo .card:nth-of-type(1):before, .demo .card:nth-of-type(1):after,
+.demo .card:nth-of-type(2):before,
+.demo .card:nth-of-type(2):after,
+.demo .card:nth-of-type(3):before,
+.demo .card:nth-of-type(3):after {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.demo .card:nth-of-type(1):before, .demo .card:nth-of-type(1):after {
+  display: none;
+}
+
+.demo .card:nth-of-type(2) {
+  background: none;
+}
+.demo .card:nth-of-type(2):before {
+  display: none;
+}
+
+.demo .card:nth-of-type(3) {
+  background: none;
+}
+.demo .card:nth-of-type(3):after {
+  display: none;
+}
+
+.operator {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 6vh;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #333844;
+  padding: 0;
+  z-index: 1;
+  transform: translate3d(0, 0, 0.1px);
+}
+
+body {
+  color: white;
+  background-color: #333844;
+  font-family: "Heebo", sans-serif;
+  text-align: center;
+}
+
+h1 {
+  display: block;
+  margin: 30px 0;
+}
+
+p {
+  margin-top: 5px;
+  font-weight: 200;
+}
+
+#app {
+  position: relative;
+}
+
+.demo,
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  perspective: 2000px;
+  position: relative;
+  z-index: 1;
+  transform: translate3d(0.1px, 0.1px, 0.1px);
+}
+
+.demo {
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+  .cards {
+    flex-direction: row;
+  }
+}
+.cards .card:nth-child(2), .cards .card:nth-child(2):before, .cards .card:nth-child(2):after {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+.cards .card:nth-child(3), .cards .card:nth-child(3):before, .cards .card:nth-child(3):after {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+.cards .card:nth-child(4), .cards .card:nth-child(4):before, .cards .card:nth-child(4):after {
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  padding: 1em;
+  background: rgba(0, 0, 0, 0.3);
+  margin-top: 0;
+}
+
+p.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+}
+
+p a {
+  color: cyan;
+}
+
+html,
+body,
+main {
+  min-height: 100%;
+}/*# sourceMappingURL=style.css.map */
